@@ -1,0 +1,75 @@
+Arguments: 
+  /Users/mattcleary/.nvm/versions/node/v8.9.1/bin/node /Users/mattcleary/.yarn/bin/yarn.js test
+
+PATH: 
+  /Users/mattcleary/.yarn/bin:/Users/mattcleary/.config/yarn/global/node_modules/.bin:/Users/mattcleary/.fastlane/bin:/Users/mattcleary/.nvm/versions/node/v8.9.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/Library/Android/sdk/emulator:~/Library/Android/sdk/tools:~/Library/Android/sdk/platform-tools/:/Users/mattcleary/Library/Android/sdk/emulator:/Users/mattcleary/Library/Android/sdk/tools:/Users/mattcleary/Library/Android/sdk/platform-tools/
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "jest": {
+      "setupTestFrameworkScriptFile": "./tests/setup.js"
+    },
+    "scripts": {
+      "start": "node index.js",
+      "server": "nodemon index.js --ignore tests",
+      "client": "npm run start --prefix client",
+      "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "test": "jest",
+      "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+      "heroku-postbuild": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "aws-sdk": "^2.188.0",
+      "body-parser": "^1.17.2",
+      "concurrently": "^3.5.0",
+      "cookie-session": "^2.0.0-beta.2",
+      "express": "^4.15.3",
+      "jest": "^22.1.4",
+      "migrate-mongoose": "^3.2.2",
+      "mongoose": "^4.11.1",
+      "nodemon": "^1.11.0",
+      "passport": "^0.3.2",
+      "passport-google-oauth20": "^1.0.0",
+      "path-parser": "^2.0.2",
+      "puppeteer": "^1.0.0",
+      "redis": "^2.8.0",
+      "uuid": "^3.2.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c jest
+  Directory: /Users/mattcleary/projects/griderCourses/advancedNode/AdvancedNodeStarter
+  Output:
+  
+      at ProcessTermError.MessageError (/Users/mattcleary/.yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/Users/mattcleary/.yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/Users/mattcleary/.yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
