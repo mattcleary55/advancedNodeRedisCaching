@@ -14,7 +14,7 @@ afterEach(async () => {
 })
 
 test('the header has the correct text', async () => {
-  const text = await page.$eval('a.brand-logo', el => el.innerHTML)
+  const text = await page.getContentsOf('a.brand-logo')
   expect(text).toEqual('The Cleary Theory')
 })
 
@@ -25,6 +25,7 @@ test('clicking login', async () => {
 })
 
 test('When signed in, shows logout button', async () => {
-  const text = await page.$eval('a[href="/auth/logout"]', el => el.innerHTML)
+  await page.login()
+  const text = await page.getContentsOf('a[href="/auth/logout"]')
   expect(text).toEqual('Logout')
 })
