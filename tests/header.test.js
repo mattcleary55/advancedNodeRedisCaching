@@ -1,8 +1,7 @@
-const sessionFactory = require('./factories/sessionFactory')
-const userFactory = require('./factories/userFactory')
+
 const Page = require('./helpers/page')
 
-let browser, page
+let page
 
 beforeEach(async () => {
   page = await Page.build()
