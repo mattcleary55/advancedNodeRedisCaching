@@ -4,7 +4,7 @@ let page
 
 beforeEach(async () => {
   page = await Page.build()
-  await page.goto('localhost:3000')
+  await page.goto('http://localhost:3000')
 })
 
 afterEach(async () => {
@@ -22,7 +22,7 @@ describe('When logged in', async () => {
     expect(label).toEqual('Blog Title')
   })
 
-  describe('and using valid inputs', async () => {
+  describe('And using valid inputs', async () => {
     beforeEach(async () => {
       await page.type('.title input', 'My Title')
       await page.type('.content input', 'My Content')
@@ -67,7 +67,7 @@ describe('User is not logged in', async () => {
     {
       method: 'post',
       path: '/api/blogs',
-      body: {
+      data: {
         title: 'T',
         content: 'C'
       }
@@ -77,7 +77,7 @@ describe('User is not logged in', async () => {
   test('Blog related actions are prohibited', async () => {
     const results = await page.execRequests(actions)
     for (let result of results) {
-      expect(result).toEqual('You must be logged in!')
+      expect(result).toEqual({ error: 'You must log in!' })
     }
   })
 })
